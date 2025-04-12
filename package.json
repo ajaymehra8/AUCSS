@@ -1,0 +1,22 @@
+{
+  "name": "ajay-css-library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/style.css",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "xcopy src\\index.css dist\\styles.css /Y",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "css",
+    "utility",
+    "tailwind",
+    "bootstrap",
+    "ui"
+  ],
+  "author": "Ajay Mahara",
+  "license": "ISC"
+}
