@@ -1,11 +1,11 @@
 {
   "name": "au-css",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "",
-  "main": "dist/style.css",
+  "main": "dest/style.css",
   "files": [
-    "dist"
-  ],
+    "dest/index.css",
+    "js/arbitary-values.js"  ],
   "scripts": {
 "build": "xcopy src\\index.css dest\\index.css /Y",
     "test": "echo \"Error: no test specified\" && exit 1"
