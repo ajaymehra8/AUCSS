@@ -1,5 +1,5 @@
 {
-  "name": "ajay-css-library",
+  "name": "au-css",
   "version": "1.0.0",
   "description": "",
   "main": "dist/style.css",
@@ -7,7 +7,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "xcopy src\\index.css dist\\styles.css /Y",
+"build": "xcopy src\\index.css dest\\index.css /Y",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -18,5 +18,10 @@
     "ui"
   ],
   "author": "Ajay Mahara",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "postcss-cli": "^11.0.1"
+  }
 }

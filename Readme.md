@@ -1,4 +1,4 @@
-# ajay-css-lib
+# AU-CSS
 
 A simple utility-first CSS library inspired by Tailwind and Bootstrap.
 
