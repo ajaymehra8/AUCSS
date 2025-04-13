@@ -97,67 +97,74 @@ body {
   justify-content: flex-end;
 }
 
+/* Line height utilities */
+.leading-tight {
+  line-height: 1.25;
+}
+
+.leading-normal {
+  line-height: 1.5;
+}
+
+.leading-loose {
+  line-height: 2;
+}
+
+/* Predefined line-height for values from 3 to 6 */
+.leading-3 {
+  line-height: 3;
+}
+
+.leading-4 {
+  line-height: 4;
+}
+
+.leading-5 {
+  line-height: 5;
+}
+
+.leading-6 {
+  line-height: 6;
+}
+
+
 /* ==== Grid Utiilites ====  */
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: -0.5rem;
-  margin-right: -0.5rem;
+.grid {
+  display: grid;
 }
 
-[class^="col-"] {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  box-sizing: border-box;
+/* Default: Mobile-first (2 columns) */
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid-cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.grid-cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+.grid-cols-6 {
+  grid-template-columns: repeat(6, 1fr);
 }
 
-.col-1 {
-  flex: 0 0 8.33%;
-  max-width: 8.33%;
+/* Gaps */
+.gap-1 {
+  gap: 0.25rem;
 }
-.col-2 {
-  flex: 0 0 16.66%;
-  max-width: 16.66%;
+.gap-2 {
+  gap: 0.5rem;
 }
-.col-3 {
-  flex: 0 0 25%;
-  max-width: 25%;
+.gap-3 {
+  gap: 0.75rem;
 }
-.col-4 {
-  flex: 0 0 33.33%;
-  max-width: 33.33%;
+.gap-4 {
+  gap: 1rem;
 }
-.col-5 {
-  flex: 0 0 41.66%;
-  max-width: 41.66%;
-}
-.col-6 {
-  flex: 0 0 50%;
-  max-width: 50%;
-}
-.col-7 {
-  flex: 0 0 58.33%;
-  max-width: 58.33%;
-}
-.col-8 {
-  flex: 0 0 66.66%;
-  max-width: 66.66%;
-}
-.col-9 {
-  flex: 0 0 75%;
-  max-width: 75%;
-}
-.col-10 {
-  flex: 0 0 83.33%;
-  max-width: 83.33%;
-}
-.col-11 {
-  flex: 0 0 91.66%;
-  max-width: 91.66%;
-}
-.col-12 {
-  flex: 0 0 100%;
-  max-width: 100%;
+.gap-5 {
+  gap: 1.25rem;
 }
 
 /* ======================
@@ -477,26 +484,32 @@ body {
   position: fixed;
   top: 5px;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
+  transform: translate(-50%, -100px); /* Start slightly above */
   cursor: pointer;
-  width: clamp(400px, 5vw, 600px);
+  width: clamp(300px, 3vw, 400px);
+  height:30px ;
   font-family: "Fira Sans", sans-serif;
   padding: 5px;
   z-index: 9999;
-  color: #fff;
-  font-size: 1.8rem;
-  font-weight: 400;
+  font-size: 1.3rem;
+  color:white;
   text-align: center;
   border-radius: 5px;
-  -webkit-box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
   box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
+.alert.show {
+  transform: translate(-50%, 0);
+  opacity: 1;
+}
+
+
 .alert--success {
   background-color: #20bf6b;
 }
 .alert--error {
-  background-color: #eb4d4b;
+  background-color: #e02e2a;
 }
 
 /* BACKGROUND IMAGE STYLES */
@@ -547,6 +560,56 @@ body {
 .bg-right {
   background-position: right;
 }
+
+
+/* ========== Transitions ========== */
+.transition {
+  transition: all 0.3s ease;
+}
+.transition-all {
+  transition: all 0.3s ease;
+}
+.transition-colors {
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+.transition-transform {
+  transition: transform 0.3s ease;
+}
+
+/* ========== Duration ========== */
+.duration-100 {
+  transition-duration: 100ms;
+}
+.duration-200 {
+  transition-duration: 200ms;
+}
+.duration-300 {
+  transition-duration: 300ms;
+}
+.duration-500 {
+  transition-duration: 500ms;
+}
+.duration-700 {
+  transition-duration: 700ms;
+}
+
+/* ========== Transform ========== */
+.scale-90 {
+  transform: scale(0.9);
+}
+.scale-100 {
+  transform: scale(1);
+}
+.scale-110 {
+  transform: scale(1.1);
+}
+.rotate-45 {
+  transform: rotate(45deg);
+}
+.rotate-90 {
+  transform: rotate(90deg);
+}
+
 
 /* RESPONSIVE CODE */
 /* ======================
@@ -663,6 +726,12 @@ body {
   .sm\:justify-end {
     justify-content: flex-end;
   }
+  .sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sm\:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (min-width: 768px) {
@@ -768,6 +837,15 @@ body {
   .md\:justify-end {
     justify-content: flex-end;
   }
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .md\:grid-cols-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
 }
 
 @media (min-width: 1024px) {
@@ -872,6 +950,15 @@ body {
   }
   .lg\:justify-end {
     justify-content: flex-end;
+  }
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .lg\:grid-cols-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .lg\:grid-cols-6 {
+    grid-template-columns: repeat(6, 1fr);
   }
 }
 

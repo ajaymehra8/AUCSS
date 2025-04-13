@@ -2,6 +2,49 @@ function applyArbitraryValues() {
   const allElements = document.querySelectorAll("*");
   const utilityRegex = /^([a-z]+(?:-[a-z]+)*)-\[(.+)\]$/;
 
+  
+  // Add base .card styles dynamically
+document.querySelectorAll(".card").forEach((element) => {
+  element.style.backgroundColor = "#fff";
+  element.style.borderRadius = "10px";
+  element.style.boxShadow = "0 0.5rem 1rem rgba(0, 0, 0, 0.1)";
+  element.style.padding = "1rem";
+  element.style.border = "1px solid #ddd";
+  element.style.transition = "all 0.3s ease";
+});
+document.querySelectorAll(".card-hover").forEach((element) => {
+  element.addEventListener("mouseenter", () => {
+    element.style.boxShadow = "0 0.8rem 2rem rgba(0, 0, 0, 0.15)";
+    element.style.transform = "translateY(-5px)";
+  });
+  element.addEventListener("mouseleave", () => {
+    element.style.boxShadow = "0 0.5rem 1rem rgba(0, 0, 0, 0.1)";
+    element.style.transform = "translateY(0)";
+  });
+});
+
+// In your applyArbitraryValues function (or in a separate JS section), 
+// add styles for images inside cards.
+document.querySelectorAll(".card img").forEach((img) => {
+  img.style.width = "100%";
+  img.style.height = "auto";
+  img.style.borderRadius = "8px 8px 0 0";  // Optional: to round image corners
+});
+
+document.querySelectorAll(".card-image").forEach((element) => {
+  element.addEventListener("mouseenter", () => {
+    element.style.transform = "scale(1.05)";
+    element.style.transition = "transform 0.3s ease";
+  });
+  element.addEventListener("mouseleave", () => {
+    element.style.transform = "scale(1)";
+  });
+});
+
+
+
+
+
   const propertyMap = {
     p: "padding",
     pt: "padding-top",
@@ -44,6 +87,9 @@ function applyArbitraryValues() {
     "outline-offset": "outline-offset",
     "text-decoration": "text-decoration",
     "text-transform": "text-transform",
+    transition: "transition",
+    duration: "transition-duration",
+    leading: "line-height",
   };
 
   const unitMap = {
@@ -57,7 +103,10 @@ function applyArbitraryValues() {
     right: "px",
     bottom: "px",
     left: "px",
+    "transition-duration": "ms",
+    "line-height": "px", 
   };
+
 
   const transformHandlers = {
     rotate: (value) => `rotate(${value})`,
@@ -74,6 +123,17 @@ function applyArbitraryValues() {
     5: "1.25rem",
   };
 
+  const lineHeightValues = {
+    tight: "1.25",
+    normal: "1.5",
+    loose: "2",
+    "3": "3",
+    "4": "4",
+    "5": "5",
+    "6": "6",
+  };
+  
+  
   const bgUtils = {
     "bg-cover": ["backgroundSize", "cover"],
     "bg-contain": ["backgroundSize", "contain"],
@@ -90,6 +150,39 @@ function applyArbitraryValues() {
     "bg-local": ["backgroundAttachment", "local"],
     "bg-scroll": ["backgroundAttachment", "scroll"],
   };
+
+
+
+ 
+
+  allElements.forEach((element) => {
+    const classNames = element.className.split(" ");
+  
+    classNames.forEach((className) => {
+      // Handle line-height utilities with arbitrary values like leading-[5]
+      if (/^leading-\[(.+)\]$/.test(className)) {
+        const value = className.match(/^leading-\[(.+)\]$/)[1];
+        element.style.lineHeight = value;
+        return;
+      }
+  
+      // Handle predefined line-height classes like leading-tight, leading-normal, etc.
+      if (className.startsWith("leading-")) {
+        const parts = className.split("-");
+        const val = parts[1];
+  
+        if (lineHeightValues[val]) {
+          element.style.lineHeight = lineHeightValues[val];
+          return;
+        }
+      }
+  
+      // ... other utility classes (e.g., margin, padding, etc.)
+    });
+
+  });
+
+  
 
   allElements.forEach((element) => {
     const classNames = element.className.split(" ");
@@ -208,6 +301,44 @@ function applyArbitraryValues() {
           return;
         }
       }
+      // Hover utility like hover:bg-[red] or hover:text-[20px]
+if (/^hover:([a-z-]+)-\[(.+)\]$/.test(className)) {
+  const [, utility, rawValue] = className.match(/^hover:([a-z-]+)-\[(.+)\]$/);
+  const cssProps = Array.isArray(propertyMap[utility])
+    ? propertyMap[utility]
+    : [propertyMap[utility]];
+
+  const isNumeric = !isNaN(parseFloat(rawValue)) && isFinite(rawValue);
+  let hoverValue = rawValue;
+
+  cssProps.forEach((cssProp) => {
+    if (isNumeric && unitMap[cssProp]) {
+      hoverValue = `${rawValue}${unitMap[cssProp]}`;
+    }
+
+    // Save original value for revert
+    const originalValue = element.style[cssProp] || "";
+
+    element.addEventListener("mouseenter", () => {
+      if (transformHandlers[utility]) {
+        element.style.transform = transformHandlers[utility](hoverValue);
+      } else {
+        element.style[cssProp] = hoverValue;
+      }
+    });
+
+    element.addEventListener("mouseleave", () => {
+      if (transformHandlers[utility]) {
+        element.style.transform = "";
+      } else {
+        element.style[cssProp] = originalValue;
+      }
+    });
+  });
+
+  return; // Skip further processing
+}
+
 
       // Background utilities
       if (bgUtils[className]) {
@@ -228,6 +359,48 @@ function applyArbitraryValues() {
             .replace(/['"]?\)$/, ")");
           element.style.backgroundImage = cleaned;
           return;
+        }
+        if (/^leading-\[(.+)\]$/.test(className)) {
+          const value = className.match(/^leading-\[(.+)\]$/)[1];
+          element.style.lineHeight = value;
+          return;
+        }
+      
+        // Handle predefined line-height classes like leading-tight, leading-normal, etc.
+        if (className.startsWith("leading-")) {
+          const parts = className.split("-");
+          const val = parts[1];
+      
+          if (lineHeightValues[val]) {
+            element.style.lineHeight = lineHeightValues[val];
+            return;
+          }
+        }
+      
+        // ✅ Handle letter-spacing utilities like tracking-[2px]
+        if (/^tracking-\[(.+)\]$/.test(className)) {
+          const value = className.match(/^tracking-\[(.+)\]$/)[1];
+          element.style.letterSpacing = value;
+          return;
+        }
+      
+        // ✅ Handle predefined letter-spacing like tracking-tight
+        if (className.startsWith("tracking-")) {
+          const parts = className.split("-");
+          const val = parts[1];
+          const spacingMap = {
+            tighter: "-0.05em",
+            tight: "-0.025em",
+            normal: "0em",
+            wide: "0.025em",
+            wider: "0.05em",
+            widest: "0.1em"
+          };
+      
+          if (spacingMap[val]) {
+            element.style.letterSpacing = spacingMap[val];
+            return;
+          }
         }
 
         if (propertyMap[property]) {
