@@ -20,7 +20,7 @@ Add this to your HTML `<head>`:
 
 And add this before your `</body>` tag (for support of arbitrary values):
 ```html
-<script src="https://cdn.jsdelivr.net/npm/au-css@latest/js/arbitrary-values.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/au-css@latest/js/arbitary-values.js"></script>
 ```
 
 #### ✅ Example:
@@ -44,7 +44,7 @@ For Next.js:
 In `pages/_app.js` or `pages/_app.tsx`:
 ```js
 import 'au-css/dest/index.css'; // Main styles
-import 'au-css/js/arbitrary-values.js'; // Optional: Enables support for custom utilities like p-[40px]
+import 'au-css/js/arbitary-values.js'; // Optional: Enables support for custom utilities like p-[40px]
 ```
 
 #### ✅ Usage in JSX:
@@ -92,7 +92,7 @@ Provided via jsDelivr:
 
 ```
 https://cdn.jsdelivr.net/npm/au-css@latest/dest/index.css
-https://cdn.jsdelivr.net/npm/au-css@latest/js/arbitrary-values.js
+https://cdn.jsdelivr.net/npm/au-css@latest/js/arbitary-values.js
 ```
 
 ## 📃 License
@@ -105,7 +105,7 @@ PRs are welcome! Feel free to fork and improve the project.
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/au-css.git
+git clone https://github.com/ajaymehra8/au-css.git
 
 # Install dependencies
 npm install
