@@ -1,3 +1,5 @@
+/* FONT FAMLIES */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Fira+Mono:wght@400;500;700&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 * {
   padding: 0;
   margin: 0;
@@ -434,4 +436,538 @@ body {
 }
 .left-4 {
   left: 1rem;
+}
+
+/* ======================
+   List Style Utilities
+   ====================== */
+.list-none {
+  list-style: none;
+}
+.list-disc {
+  list-style: disc;
+}
+.list-decimal {
+  list-style: decimal;
+}
+.list-circle {
+  list-style: circle;
+}
+.list-square {
+  list-style: square;
+}
+.list-inside {
+  list-style-position: inside;
+}
+.list-outside {
+  list-style-position: outside;
+}
+/* TOASTER STYLE */
+.alert {
+   position: fixed;
+   top: 5px;
+   left: 50%;
+   -webkit-transform: translateX(-50%);
+   transform: translateX(-50%);
+ cursor: pointer;
+   width: clamp(400px, 5vw, 600px);
+   font-family: "Fira Sans", sans-serif;
+padding: 5px;
+   z-index: 9999;
+   color: #fff;
+   font-size: 1.8rem;
+   font-weight: 400;
+   text-align: center;
+  border-radius: 5px;
+   -webkit-box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
+   box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
+ }
+ .alert--success {
+   background-color: #20bf6b;
+ }
+ .alert--error {
+   background-color: #eb4d4b;
+ }
+
+
+ /* BACKGROUND IMAGE STYLES */
+ .bg-repeat {
+   background-repeat: repeat;
+ }
+ 
+ .bg-no-repeat {
+   background-repeat: no-repeat;
+ }
+ 
+ .bg-repeat-x {
+   background-repeat: repeat-x;
+ }
+ 
+ .bg-repeat-y {
+   background-repeat: repeat-y;
+ }
+ 
+ .bg-cover {
+   background-size: cover;
+ }
+ 
+ .bg-contain {
+   background-size: contain;
+ }
+ 
+ .bg-auto {
+   background-size: auto;
+ }
+ 
+ .bg-center {
+   background-position: center;
+ }
+ 
+ .bg-top {
+   background-position: top;
+ }
+ 
+ .bg-bottom {
+   background-position: bottom;
+ }
+ 
+ .bg-left {
+   background-position: left;
+ }
+ 
+ .bg-right {
+   background-position: right;
+ }
+ 
+
+/* RESPONSIVE CODE */
+/* ======================
+   Responsive Utilities
+   ====================== */
+
+@media (min-width: 640px) {
+  /* Spacing - Padding */
+  .sm\:p-1 {
+    padding: 0.25rem;
+  }
+  .sm\:p-2 {
+    padding: 0.5rem;
+  }
+  .sm\:p-3 {
+    padding: 0.75rem;
+  }
+  .sm\:p-4 {
+    padding: 1rem;
+  }
+  .sm\:p-5 {
+    padding: 1.25rem;
+  }
+
+  /* Spacing - Margin */
+  .sm\:m-1 {
+    margin: 0.25rem;
+  }
+  .sm\:m-2 {
+    margin: 0.5rem;
+  }
+  .sm\:m-3 {
+    margin: 0.75rem;
+  }
+  .sm\:m-4 {
+    margin: 1rem;
+  }
+  .sm\:m-5 {
+    margin: 1.25rem;
+  }
+
+  /* Display */
+  .sm\:block {
+    display: block;
+  }
+  .sm\:inline-block {
+    display: inline-block;
+  }
+  .sm\:flex {
+    display: flex;
+  }
+  .sm\:inline-flex {
+    display: inline-flex;
+  }
+  .sm\:hidden {
+    display: none;
+  }
+
+  /* Text alignment */
+  .sm\:text-left {
+    text-align: left;
+  }
+  .sm\:text-center {
+    text-align: center;
+  }
+  .sm\:text-right {
+    text-align: right;
+  }
+
+  /* Width & Height */
+  .sm\:w-full {
+    width: 100%;
+  }
+  .sm\:h-full {
+    height: 100%;
+  }
+  .sm\:w-screen {
+    width: 100vw;
+  }
+  .sm\:h-screen {
+    height: 100vh;
+  }
+
+  /* Position */
+  .sm\:relative {
+    position: relative;
+  }
+  .sm\:absolute {
+    position: absolute;
+  }
+  .sm\:fixed {
+    position: fixed;
+  }
+  .sm\:sticky {
+    position: sticky;
+  }
+
+  /* Flex Alignment */
+  .sm\:items-center {
+    align-items: center;
+  }
+  .sm\:items-start {
+    align-items: flex-start;
+  }
+  .sm\:items-end {
+    align-items: flex-end;
+  }
+  .sm\:justify-center {
+    justify-content: center;
+  }
+  .sm\:justify-between {
+    justify-content: space-between;
+  }
+  .sm\:justify-end {
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:p-1 {
+    padding: 0.25rem;
+  }
+  .md\:p-2 {
+    padding: 0.5rem;
+  }
+  .md\:p-3 {
+    padding: 0.75rem;
+  }
+  .md\:p-4 {
+    padding: 1rem;
+  }
+  .md\:p-5 {
+    padding: 1.25rem;
+  }
+
+  .md\:m-1 {
+    margin: 0.25rem;
+  }
+  .md\:m-2 {
+    margin: 0.5rem;
+  }
+  .md\:m-3 {
+    margin: 0.75rem;
+  }
+  .md\:m-4 {
+    margin: 1rem;
+  }
+  .md\:m-5 {
+    margin: 1.25rem;
+  }
+
+  .md\:block {
+    display: block;
+  }
+  .md\:inline-block {
+    display: inline-block;
+  }
+  .md\:flex {
+    display: flex;
+  }
+  .md\:inline-flex {
+    display: inline-flex;
+  }
+  .md\:hidden {
+    display: none;
+  }
+
+  .md\:text-left {
+    text-align: left;
+  }
+  .md\:text-center {
+    text-align: center;
+  }
+  .md\:text-right {
+    text-align: right;
+  }
+
+  .md\:w-full {
+    width: 100%;
+  }
+  .md\:h-full {
+    height: 100%;
+  }
+  .md\:w-screen {
+    width: 100vw;
+  }
+  .md\:h-screen {
+    height: 100vh;
+  }
+
+  .md\:relative {
+    position: relative;
+  }
+  .md\:absolute {
+    position: absolute;
+  }
+  .md\:fixed {
+    position: fixed;
+  }
+  .md\:sticky {
+    position: sticky;
+  }
+
+  .md\:items-center {
+    align-items: center;
+  }
+  .md\:items-start {
+    align-items: flex-start;
+  }
+  .md\:items-end {
+    align-items: flex-end;
+  }
+  .md\:justify-center {
+    justify-content: center;
+  }
+  .md\:justify-between {
+    justify-content: space-between;
+  }
+  .md\:justify-end {
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:p-1 {
+    padding: 0.25rem;
+  }
+  .lg\:p-2 {
+    padding: 0.5rem;
+  }
+  .lg\:p-3 {
+    padding: 0.75rem;
+  }
+  .lg\:p-4 {
+    padding: 1rem;
+  }
+  .lg\:p-5 {
+    padding: 1.25rem;
+  }
+
+  .lg\:m-1 {
+    margin: 0.25rem;
+  }
+  .lg\:m-2 {
+    margin: 0.5rem;
+  }
+  .lg\:m-3 {
+    margin: 0.75rem;
+  }
+  .lg\:m-4 {
+    margin: 1rem;
+  }
+  .lg\:m-5 {
+    margin: 1.25rem;
+  }
+
+  .lg\:block {
+    display: block;
+  }
+  .lg\:inline-block {
+    display: inline-block;
+  }
+  .lg\:flex {
+    display: flex;
+  }
+  .lg\:inline-flex {
+    display: inline-flex;
+  }
+  .lg\:hidden {
+    display: none;
+  }
+
+  .lg\:text-left {
+    text-align: left;
+  }
+  .lg\:text-center {
+    text-align: center;
+  }
+  .lg\:text-right {
+    text-align: right;
+  }
+
+  .lg\:w-full {
+    width: 100%;
+  }
+  .lg\:h-full {
+    height: 100%;
+  }
+  .lg\:w-screen {
+    width: 100vw;
+  }
+  .lg\:h-screen {
+    height: 100vh;
+  }
+
+  .lg\:relative {
+    position: relative;
+  }
+  .lg\:absolute {
+    position: absolute;
+  }
+  .lg\:fixed {
+    position: fixed;
+  }
+  .lg\:sticky {
+    position: sticky;
+  }
+
+  .lg\:items-center {
+    align-items: center;
+  }
+  .lg\:items-start {
+    align-items: flex-start;
+  }
+  .lg\:items-end {
+    align-items: flex-end;
+  }
+  .lg\:justify-center {
+    justify-content: center;
+  }
+  .lg\:justify-between {
+    justify-content: space-between;
+  }
+  .lg\:justify-end {
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:p-1 {
+    padding: 0.25rem;
+  }
+  .xl\:p-2 {
+    padding: 0.5rem;
+  }
+  .xl\:p-3 {
+    padding: 0.75rem;
+  }
+  .xl\:p-4 {
+    padding: 1rem;
+  }
+  .xl\:p-5 {
+    padding: 1.25rem;
+  }
+
+  .xl\:m-1 {
+    margin: 0.25rem;
+  }
+  .xl\:m-2 {
+    margin: 0.5rem;
+  }
+  .xl\:m-3 {
+    margin: 0.75rem;
+  }
+  .xl\:m-4 {
+    margin: 1rem;
+  }
+  .xl\:m-5 {
+    margin: 1.25rem;
+  }
+
+  .xl\:block {
+    display: block;
+  }
+  .xl\:inline-block {
+    display: inline-block;
+  }
+  .xl\:flex {
+    display: flex;
+  }
+  .xl\:inline-flex {
+    display: inline-flex;
+  }
+  .xl\:hidden {
+    display: none;
+  }
+
+  .xl\:text-left {
+    text-align: left;
+  }
+  .xl\:text-center {
+    text-align: center;
+  }
+  .xl\:text-right {
+    text-align: right;
+  }
+
+  .xl\:w-full {
+    width: 100%;
+  }
+  .xl\:h-full {
+    height: 100%;
+  }
+  .xl\:w-screen {
+    width: 100vw;
+  }
+  .xl\:h-screen {
+    height: 100vh;
+  }
+
+  .xl\:relative {
+    position: relative;
+  }
+  .xl\:absolute {
+    position: absolute;
+  }
+  .xl\:fixed {
+    position: fixed;
+  }
+  .xl\:sticky {
+    position: sticky;
+  }
+
+  .xl\:items-center {
+    align-items: center;
+  }
+  .xl\:items-start {
+    align-items: flex-start;
+  }
+  .xl\:items-end {
+    align-items: flex-end;
+  }
+  .xl\:justify-center {
+    justify-content: center;
+  }
+  .xl\:justify-between {
+    justify-content: space-between;
+  }
+  .xl\:justify-end {
+    justify-content: flex-end;
+  }
 }
