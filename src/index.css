@@ -442,6 +442,9 @@ Margin bottom*/
 .text-right {
   text-align: right;
 }
+.text-justify {
+  text-align: justify;
+}
 .text-sm {
   font-size: 0.875rem;
 }
@@ -625,12 +628,36 @@ Margin bottom*/
 /* ======================
       Cursor Utilities
       ====================== */
+/* Cursor Utilities */
+
+.cursor-auto {
+  cursor: auto;
+}
+
+.cursor-default {
+  cursor: default;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
+
+.cursor-wait {
+  cursor: wait;
+}
+
+.cursor-text {
+  cursor: text;
+}
+
+.cursor-move {
+  cursor: move;
+}
+
 .cursor-not-allowed {
   cursor: not-allowed;
 }
+
 /* ======================
    Inset Utilities
    ====================== */
@@ -909,6 +936,106 @@ Margin bottom*/
 .rotate-90 {
   transform: rotate(90deg);
 }
+
+/* Overflow Utilities */
+
+/* Horizontal Overflow (X) */
+.overflow-x-auto {
+  overflow-x: auto;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+.overflow-x-scroll {
+  overflow-x: scroll;
+}
+
+.overflow-x-visible {
+  overflow-x: visible;
+}
+
+/* Vertical Overflow (Y) */
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+.overflow-y-hidden {
+  overflow-y: hidden;
+}
+
+.overflow-y-scroll {
+  overflow-y: scroll;
+
+}
+
+.overflow-y-visible {
+  overflow-y: visible;
+}
+
+/* Opacity Utilities */
+
+/* 0% to 100% in common steps */
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-10 {
+  opacity: 0.1;
+}
+
+.opacity-25 {
+  opacity: 0.25;
+}
+
+.opacity-30 {
+  opacity: 0.3;
+}
+
+.opacity-40 {
+  opacity: 0.4;
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}
+
+.opacity-60 {
+  opacity: 0.6;
+}
+
+.opacity-70 {
+  opacity: 0.7;
+}
+
+.opacity-75 {
+  opacity: 0.75;
+}
+
+.opacity-90 {
+  opacity: 0.9;
+}
+
+.opacity-100 {
+  opacity: 1;
+}
+
+
+/* Visibility Utilities */
+
+.visible {
+  visibility: visible;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.collapse {
+  visibility: collapse;
+}
+
 
 
 /* RESPONSIVE CODE */

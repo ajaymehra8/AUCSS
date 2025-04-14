@@ -2,34 +2,33 @@ function applyArbitraryValues() {
   const allElements = document.querySelectorAll("*");
   const utilityRegex = /^([a-z]+(?:-[a-z]+)*)-\[(.+)\]$/;
 
-  
-  // Add base .card styles dynamically
-document.querySelectorAll(".card").forEach((element) => {
-  element.style.backgroundColor = "#fff";
-  element.style.borderRadius = "10px";
-  element.style.boxShadow = "0 0.5rem 1rem rgba(0, 0, 0, 0.1)";
-  element.style.padding = "1rem";
-  element.style.border = "1px solid #ddd";
-  element.style.transition = "all 0.3s ease";
-});
-document.querySelectorAll(".card-hover").forEach((element) => {
-  element.addEventListener("mouseenter", () => {
-    element.style.boxShadow = "0 0.8rem 2rem rgba(0, 0, 0, 0.15)";
-    element.style.transform = "translateY(-5px)";
-  });
-  element.addEventListener("mouseleave", () => {
+  // Add base .card styles in you website
+  document.querySelectorAll(".card").forEach((element) => {
+    element.style.backgroundColor = "#fff";
+    element.style.borderRadius = "10px";
     element.style.boxShadow = "0 0.5rem 1rem rgba(0, 0, 0, 0.1)";
-    element.style.transform = "translateY(0)";
+    element.style.padding = "1rem";
+    element.style.border = "1px sol id #ddd";
+    element.style.transition = "all 0.3s ease";
   });
-});
+  document.querySelectorAll(".card-hover").forEach((element) => {
+    element.addEventListener("mouseenter", () => {
+      element.style.boxShadow = "0 0.8rem 2rem rgba(0, 0, 0, 0.15)";
+      element.style.transform = "translateY(-5px)";
+    });
+    element.addEventListener("mouseleave", () => {
+      element.style.boxShadow = "0 0.5rem 1rem rgba(0, 0, 0, 0.1)";
+      element.style.transform = "translateY(0)";
+    });
+  });
 
-// In your applyArbitraryValues function (or in a separate JS section), 
-// add styles for images inside cards.
-document.querySelectorAll(".card img").forEach((img) => {
-  img.style.width = "100%";
-  img.style.height = "auto";
-  img.style.borderRadius = "8px 8px 0 0";  // Optional: to round image corners
-});
+  // In your applyArbitraryValues function
+  // add styles for images in your card section
+  document.querySelectorAll(".card img").forEach((img) => {
+    img.style.width = "100%";
+    img.style.height = "auto";
+    img.style.borderRadius = "8px 8px 0 0"; 
+  });
 
 document.querySelectorAll(".card-image").forEach((element) => {
   element.addEventListener("mouseenter", () => {
@@ -41,42 +40,6 @@ document.querySelectorAll(".card-image").forEach((element) => {
   });
 });
 
-document.querySelectorAll('[class*="border-"]').forEach((el) => {
-  const classList = Array.from(el.classList);
-
-  classList.forEach(className => {
-    if (className.startsWith("border-solid[")) {
-      const value = className.match(/border-solid\[(.*)\]/)[1];
-      el.style.borderStyle = "solid";
-      el.style.borderWidth = value.split("_")[0];
-      el.style.borderColor = value.split("_")[1];
-    }
-
-    if (className.startsWith("border-dashed[")) {
-      const value = className.match(/border-dashed\[(.*)\]/)[1];
-      el.style.borderStyle = "dashed";
-      el.style.borderWidth = value.split("_")[0];
-      el.style.borderColor = value.split("_")[1];
-    }
-
-    if (className.startsWith("border-dotted[")) {
-      const value = className.match(/border-dotted\[(.*)\]/)[1];
-      el.style.borderStyle = "dotted";
-      el.style.borderWidth = value.split("_")[0];
-      el.style.borderColor = value.split("_")[1];
-    }
-  });
-});
-
-
-document.querySelectorAll('[class*="border["]').forEach((el) => {
-  const className = Array.from(el.classList).find(c => c.startsWith("border["));
-  if (className) {
-    const value = className.match(/border\[(.*)\]/)[1];
-    const cssValue = value.replace(/_/g, ' ');
-    el.style.border = cssValue;
-  }
-});
 
 
 
@@ -140,9 +103,8 @@ document.querySelectorAll('[class*="border["]').forEach((el) => {
     bottom: "px",
     left: "px",
     "transition-duration": "ms",
-    "line-height": "px", 
+    "line-height": "px",
   };
-
 
   const transformHandlers = {
     rotate: (value) => `rotate(${value})`,
@@ -163,13 +125,12 @@ document.querySelectorAll('[class*="border["]').forEach((el) => {
     tight: "1.25",
     normal: "1.5",
     loose: "2",
-    "3": "3",
-    "4": "4",
-    "5": "5",
-    "6": "6",
+    3: "3",
+    4: "4",
+    5: "5",
+    6: "6",
   };
-  
-  
+
   const bgUtils = {
     "bg-cover": ["backgroundSize", "cover"],
     "bg-contain": ["backgroundSize", "contain"],
@@ -188,9 +149,12 @@ document.querySelectorAll('[class*="border["]').forEach((el) => {
   };
 
 
+
+ 
+
   allElements.forEach((element) => {
     const classNames = element.className.split(" ");
-  
+
     classNames.forEach((className) => {
       // Handle line-height utilities with arbitrary values like leading-[5]
       if (/^leading-\[(.+)\]$/.test(className)) {
@@ -198,24 +162,21 @@ document.querySelectorAll('[class*="border["]').forEach((el) => {
         element.style.lineHeight = value;
         return;
       }
-  
+
       // Handle predefined line-height classes like leading-tight, leading-normal, etc.
       if (className.startsWith("leading-")) {
         const parts = className.split("-");
         const val = parts[1];
-  
+
         if (lineHeightValues[val]) {
           element.style.lineHeight = lineHeightValues[val];
           return;
         }
       }
-  
+
       // ... other utility classes (e.g., margin, padding, etc.)
     });
-
   });
-
-  
 
   allElements.forEach((element) => {
     const classNames = element.className.split(" ");
@@ -336,43 +297,44 @@ document.querySelectorAll('[class*="border["]').forEach((el) => {
         }
       }
       // Hover utility like hover:bg-[red] or hover:text-[20px]
-if (/^hover:([a-z-]+)-\[(.+)\]$/.test(className)) {
-  const [, utility, rawValue] = className.match(/^hover:([a-z-]+)-\[(.+)\]$/);
-  const cssProps = Array.isArray(propertyMap[utility])
-    ? propertyMap[utility]
-    : [propertyMap[utility]];
+      if (/^hover:([a-z-]+)-\[(.+)\]$/.test(className)) {
+        const [, utility, rawValue] = className.match(
+          /^hover:([a-z-]+)-\[(.+)\]$/
+        );
+        const cssProps = Array.isArray(propertyMap[utility])
+          ? propertyMap[utility]
+          : [propertyMap[utility]];
 
-  const isNumeric = !isNaN(parseFloat(rawValue)) && isFinite(rawValue);
-  let hoverValue = rawValue;
+        const isNumeric = !isNaN(parseFloat(rawValue)) && isFinite(rawValue);
+        let hoverValue = rawValue;
 
-  cssProps.forEach((cssProp) => {
-    if (isNumeric && unitMap[cssProp]) {
-      hoverValue = `${rawValue}${unitMap[cssProp]}`;
-    }
+        cssProps.forEach((cssProp) => {
+          if (isNumeric && unitMap[cssProp]) {
+            hoverValue = `${rawValue}${unitMap[cssProp]}`;
+          }
 
-    // Save original value for revert
-    const originalValue = element.style[cssProp] || "";
+          // Save original value for revert
+          const originalValue = element.style[cssProp] || "";
 
-    element.addEventListener("mouseenter", () => {
-      if (transformHandlers[utility]) {
-        element.style.transform = transformHandlers[utility](hoverValue);
-      } else {
-        element.style[cssProp] = hoverValue;
+          element.addEventListener("mouseenter", () => {
+            if (transformHandlers[utility]) {
+              element.style.transform = transformHandlers[utility](hoverValue);
+            } else {
+              element.style[cssProp] = hoverValue;
+            }
+          });
+
+          element.addEventListener("mouseleave", () => {
+            if (transformHandlers[utility]) {
+              element.style.transform = "";
+            } else {
+              element.style[cssProp] = originalValue;
+            }
+          });
+        });
+
+        return; // Skip further processing
       }
-    });
-
-    element.addEventListener("mouseleave", () => {
-      if (transformHandlers[utility]) {
-        element.style.transform = "";
-      } else {
-        element.style[cssProp] = originalValue;
-      }
-    });
-  });
-
-  return; // Skip further processing
-}
-
 
       // Background utilities
       if (bgUtils[className]) {
@@ -399,19 +361,17 @@ if (/^hover:([a-z-]+)-\[(.+)\]$/.test(className)) {
           element.style.lineHeight = value;
           return;
         }
-      
+
         // Handle predefined line-height classes like leading-tight, leading-normal, etc.
         if (className.startsWith("leading-")) {
           const parts = className.split("-");
           const val = parts[1];
-      
+
           if (lineHeightValues[val]) {
             element.style.lineHeight = lineHeightValues[val];
             return;
           }
         }
-
-     
       
         // ✅ Handle letter-spacing utilities like tracking-[2px]
         if (/^tracking-\[(.+)\]$/.test(className)) {
@@ -419,7 +379,7 @@ if (/^hover:([a-z-]+)-\[(.+)\]$/.test(className)) {
           element.style.letterSpacing = value;
           return;
         }
-      
+
         // ✅ Handle predefined letter-spacing like tracking-tight
         if (className.startsWith("tracking-")) {
           const parts = className.split("-");
@@ -428,11 +388,11 @@ if (/^hover:([a-z-]+)-\[(.+)\]$/.test(className)) {
             tighter: "-0.05em",
             tight: "-0.025em",
             normal: "0em",
-            wide: "0.025em",
-            wider: "0.05em",
-            widest: "0.1em"
+            wide: "0.05em",
+            wider: "0.1em",
+            widest: "0.3em",
           };
-      
+
           if (spacingMap[val]) {
             element.style.letterSpacing = spacingMap[val];
             return;
