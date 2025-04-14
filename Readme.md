@@ -125,7 +125,7 @@ Easily control background behavior:
 
 Build card layouts quickly:
 ```html
-<div class="card">
+<div class="card w-[300px] card-hover">
   <div class="card-image">
     <img src="image.jpg" alt="Card image">
   </div>
