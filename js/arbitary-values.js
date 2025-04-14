@@ -41,6 +41,42 @@ document.querySelectorAll(".card-image").forEach((element) => {
   });
 });
 
+document.querySelectorAll('[class*="border-"]').forEach((el) => {
+  const classList = Array.from(el.classList);
+
+  classList.forEach(className => {
+    if (className.startsWith("border-solid[")) {
+      const value = className.match(/border-solid\[(.*)\]/)[1];
+      el.style.borderStyle = "solid";
+      el.style.borderWidth = value.split("_")[0];
+      el.style.borderColor = value.split("_")[1];
+    }
+
+    if (className.startsWith("border-dashed[")) {
+      const value = className.match(/border-dashed\[(.*)\]/)[1];
+      el.style.borderStyle = "dashed";
+      el.style.borderWidth = value.split("_")[0];
+      el.style.borderColor = value.split("_")[1];
+    }
+
+    if (className.startsWith("border-dotted[")) {
+      const value = className.match(/border-dotted\[(.*)\]/)[1];
+      el.style.borderStyle = "dotted";
+      el.style.borderWidth = value.split("_")[0];
+      el.style.borderColor = value.split("_")[1];
+    }
+  });
+});
+
+
+document.querySelectorAll('[class*="border["]').forEach((el) => {
+  const className = Array.from(el.classList).find(c => c.startsWith("border["));
+  if (className) {
+    const value = className.match(/border\[(.*)\]/)[1];
+    const cssValue = value.replace(/_/g, ' ');
+    el.style.border = cssValue;
+  }
+});
 
 
 
@@ -151,9 +187,6 @@ document.querySelectorAll(".card-image").forEach((element) => {
     "bg-scroll": ["backgroundAttachment", "scroll"],
   };
 
-
-
- 
 
   allElements.forEach((element) => {
     const classNames = element.className.split(" ");
@@ -284,6 +317,7 @@ document.querySelectorAll(".card-image").forEach((element) => {
         }
       }
 
+ 
       if (className.startsWith("gap-x-")) {
         const parts = className.split("-");
         const val = parts[2];
@@ -376,6 +410,8 @@ if (/^hover:([a-z-]+)-\[(.+)\]$/.test(className)) {
             return;
           }
         }
+
+     
       
         // ✅ Handle letter-spacing utilities like tracking-[2px]
         if (/^tracking-\[(.+)\]$/.test(className)) {

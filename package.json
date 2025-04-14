@@ -1,6 +1,6 @@
 {
   "name": "au-css",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "",
   "main": "dest/style.css",
   "files": [
