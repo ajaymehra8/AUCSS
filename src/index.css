@@ -7,7 +7,6 @@
 body {
   padding: 0;
   margin: 0;
-  font-family: "Fira Sans", sans-serif;
   box-sizing: border-box;
 }
 /* ======================
@@ -200,6 +199,21 @@ body {
 .font-normal {
   font-weight: 400;
 }
+/* ======================
+     font Family
+      ====================== */
+.font-fira-sansa{
+    font-family: 'Fira Sansa', sans-serif;
+ }
+ .font-roboto{
+  font-family: 'Roboto',sans-serif;
+ }
+ .font-fira-code{
+  font-family: 'Fira Code',monospace;
+ }
+ .font-fira-mono{
+  font-family: 'Fira Mono',monospace;
+ }
 
 /* ======================
       Background Colors
