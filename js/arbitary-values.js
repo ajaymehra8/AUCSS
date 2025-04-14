@@ -304,18 +304,23 @@ document.querySelectorAll(".card-image").forEach((element) => {
         const cssProps = Array.isArray(propertyMap[utility])
           ? propertyMap[utility]
           : [propertyMap[utility]];
-
+      
         const isNumeric = !isNaN(parseFloat(rawValue)) && isFinite(rawValue);
         let hoverValue = rawValue;
-
+      
         cssProps.forEach((cssProp) => {
           if (isNumeric && unitMap[cssProp]) {
             hoverValue = `${rawValue}${unitMap[cssProp]}`;
           }
-
-          // Save original value for revert
+      
+   
           const originalValue = element.style[cssProp] || "";
-
+      
+          
+          element.style.display = "inline-block"; 
+          element.style.cursor = "pointer"; 
+      
+          
           element.addEventListener("mouseenter", () => {
             if (transformHandlers[utility]) {
               element.style.transform = transformHandlers[utility](hoverValue);
@@ -323,7 +328,7 @@ document.querySelectorAll(".card-image").forEach((element) => {
               element.style[cssProp] = hoverValue;
             }
           });
-
+      
           element.addEventListener("mouseleave", () => {
             if (transformHandlers[utility]) {
               element.style.transform = "";
@@ -332,9 +337,9 @@ document.querySelectorAll(".card-image").forEach((element) => {
             }
           });
         });
-
-        return; // Skip further processing
-      }
+      
+        return; 
+      }      
 
       // Background utilities
       if (bgUtils[className]) {
