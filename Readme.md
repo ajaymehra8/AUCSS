@@ -9,6 +9,10 @@ A lightweight utility-first CSS framework inspired by Tailwind — designed to g
 
 ---
 
+## Website
+Get help with our library: [Visit Website](https://aucss-website.vercel.app/)
+
+
 ## 🚀 Installation
 
 ### Option 1: Using via CDN
@@ -72,17 +76,6 @@ import 'au-css/js/arbitary-values.js'; // Optional: Enables support for custom u
 - CDN & NPM support
 - Small, customizable, and extendable
 
-## 📂 Folder Structure
-
-```
-au-css/
-│
-├── dest/
-│   └── index.css               # Compiled CSS
-│
-├── js/
-│   └── arbitrary-values.js     # Script to apply arbitrary value classes
-```
 
 ## 🛠️ Custom Class Support
 
@@ -138,12 +131,6 @@ Build card layouts quickly:
 
 Add hover effects with `.card-hover`
 
-## 📱 Responsive Design
-
-Future-ready with responsive prefixes:
-- `sm:text-center`
-- `md:w-[50%]`
-- `lg:flex`
 
 ## 🔗 CDN Reference
 
@@ -164,7 +151,7 @@ PRs are welcome! Feel free to fork and improve the project.
 
 ```bash
 # Clone the repository
-git clone https://github.com/ajaymehra8/au-css.git
+git clone https://github.com/ajaymehra8/AUCSS
 
 # Install dependencies
 npm install

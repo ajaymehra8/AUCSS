@@ -8,6 +8,7 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 /* ======================
    Spacing Utilities
@@ -389,7 +390,25 @@ Margin bottom*/
 .leading-6 {
   line-height: 6;
 }
-
+/* ==== letter-spacing(tracking) Utiilites ====  */
+.tracking-tighter{
+  letter-spacing: -0.05rem;
+} 
+.tracking-tight{
+  letter-spacing: -0.25rem;
+} 
+.tracking-normal{
+  letter-spacing: 0rem;
+} 
+.tracking-wide{
+  letter-spacing: 0.05rem;
+} 
+.tracking-wider{
+  letter-spacing: 0.1rem;
+}
+.tracking-widest{
+  letter-spacing: -0.3rem;
+} 
 
 /* ==== Grid Utiilites ====  */
 .grid {
