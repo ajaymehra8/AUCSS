@@ -491,6 +491,13 @@ const navbarClick = () => {
   console.log("Navbar initialized", hamburger, navlinks);
   let clicked = false;
 
+  const closeNavbar = () => {
+    body.style.overflowY = "auto";
+    navlinks.style.transition = "left 0.5s ease";
+    navlinks.style.left = "-110%";
+    clicked = false;
+  };
+
   hamburger.addEventListener("click", () => {
     if (!clicked) {
       body.style.overflowY = "hidden";
@@ -498,10 +505,14 @@ const navbarClick = () => {
       navlinks.style.left = "0";
       clicked = true;
     } else {
-      body.style.overflowY = "auto";
-      navlinks.style.transition = "left 0.5s ease";
-      navlinks.style.left = "-110%";
-      clicked = false;
+      closeNavbar();
+    }
+  });
+
+  // 🖥️ Close navbar on window resize
+  window.addEventListener("resize", () => {
+    if (clicked) {
+      closeNavbar();
     }
   });
 };
