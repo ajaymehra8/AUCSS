@@ -478,28 +478,41 @@ function getCurrentBreakpoint() {
 }
 
 // responsive code for nav
-const navbarClick=()=>{
+const navbarClick = () => {
+  const hamburger = document.querySelector("#toggle");
+  const navlinks = document.querySelector(".navlinks");
+  const body = document.querySelector("body");
 
+  if (!hamburger || !navlinks) {
+    console.log("Navbar elements not found yet.");
+    return;
+  }
 
-const hamburger=document.querySelector("#toggle");
-const navlinks=document.querySelector(".navlinks");
-const body=document.querySelector("body");
-let clicked=false;
+  console.log("Navbar initialized", hamburger, navlinks);
+  let clicked = false;
 
-hamburger?.addEventListener("click",()=>{
-if(!clicked){
-  body.style.overflowY="hidden";
-  navlinks.style.transition="left 0.5s ease";
-  navlinks.style.left="0";
-  clicked=true;
-}else{
-  body.style.overflowY="auto";
-  navlinks.style.transition="left 0.5s ease";
+  hamburger.addEventListener("click", () => {
+    if (!clicked) {
+      body.style.overflowY = "hidden";
+      navlinks.style.transition = "left 0.5s ease";
+      navlinks.style.left = "0";
+      clicked = true;
+    } else {
+      body.style.overflowY = "auto";
+      navlinks.style.transition = "left 0.5s ease";
+      navlinks.style.left = "-110%";
+      clicked = false;
+    }
+  });
+};
 
-  navlinks.style.left="-110%";
-  clicked=false;
-}
-});
-}
-document.addEventListener("DOMContentLoaded", navbarClick);
+// 🔁 Keep checking until elements exist
+const waitForNavbar = setInterval(() => {
+  const hamburger = document.querySelector("#toggle");
+  const navlinks = document.querySelector(".navlinks");
 
+  if (hamburger && navlinks) {
+    clearInterval(waitForNavbar);
+    navbarClick();
+  }
+}, 100);
