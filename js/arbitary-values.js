@@ -8,7 +8,8 @@ function applyArbitraryValues() {
     element.style.borderRadius = "10px";
     element.style.boxShadow = "0 0.5rem 1rem rgba(0, 0, 0, 0.1)";
     element.style.padding = "1rem";
-    element.style.border = "1px sol id #ddd";
+    element.style.border = "1px solid #ddd";
+    element.style.cursor = "pointer";
     element.style.transition = "all 0.3s ease";
   });
   document.querySelectorAll(".card-hover").forEach((element) => {
@@ -459,3 +460,20 @@ if (typeof module !== "undefined" && module.exports) {
     applyArbitraryValues,
   };
 }
+
+// code for responsiveness like md:style etc
+const breakpoints = {
+  sm: 640,
+  md: 768,
+  lg: 1024,
+  xl: 1280,
+};
+function getCurrentBreakpoint() {
+  const width = window.innerWidth;
+  if (width >= breakpoints.xl) return "xl";
+  if (width >= breakpoints.lg) return "lg";
+  if (width >= breakpoints.md) return "md";
+  if (width >= breakpoints.sm) return "sm";
+  return "base";
+}
+

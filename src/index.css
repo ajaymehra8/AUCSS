@@ -291,18 +291,19 @@ Margin bottom*/
 }
 
 /* Border */
-.border { border-width: 1px; }
-.border-0 { border-width: 0px; }
-.border-2 { border-width: 2px; }
-.border-4 { border-width: 4px; }
-.border-8 { border-width: 8px; }
-.border-t { border-top-width: 1px; }
-.border-r { border-right-width: 1px; }
-.border-b { border-bottom-width: 1px; }
-.border-l { border-left-width: 1px; }
+.border { border: 1px solid black; }
+.border-0 { border: 0px; }
+.border-2 { border: 2px solid black; }
+.border-4 { border: 4px solid black; }
+.border-8 { border: 8px solid black; }
+.border-t { border-top: 1px solid black; }
+.border-r { border-right: 1px solid black; }
+.border-b { border-bottom: 1px solid black; }
+.border-l { border-left: 1px solid black; }
 .border-black { border-color: black; }
 .border-white { border-color: white; }
 .border-red { border-color: red; }
+.border-gray{border-color:gray}
 /* Default border styles */
 .border-solid {
   border-style: solid;
