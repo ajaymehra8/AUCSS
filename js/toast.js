@@ -37,4 +37,4 @@ const toast = (obj) => {
   setTimeout(hideToast, time);
 };
 
-module.exports = { toast };
+export default toast;

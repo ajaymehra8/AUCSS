@@ -9,6 +9,7 @@ body {
   margin: 0;
   box-sizing: border-box;
   overflow-x: hidden;
+  font-family: 'Roboto',sans-serif;
 }
 /* ======================
    Spacing Utilities
@@ -185,7 +186,7 @@ Margin bottom*/
 .w-3 { width: 0.75rem; }   /* 12px */
 .w-4 { width: 1rem; }      /* 16px */
 .w-5 { width: 1.25rem; }   /* 20px */
-.w-auto { width: auto; }
+.w-auto { width: fit-content; }
 /* Max Width Classes */
 .max-w-1 {
   max-width: 0.25rem; /* 1 */
@@ -549,26 +550,37 @@ Margin bottom*/
   color: #374151;
 }
 
-/* ======================
-      Border Utilities
-      ====================== */
-.border {
-  border: 1px solid #e5e7eb;
-}
-.border-2 {
-  border-width: 2px;
-}
-.border-red {
-  border-color: red;
-}
-.border-blue {
-  border-color: blue;
-}
-.border-black {
+/* Border */
+.border { border: 1px solid black; }
+.border-0 { border: 0px; }
+.border-2 { border: 2px solid black; }
+.border-4 { border: 4px solid black; }
+.border-8 { border: 8px solid black; }
+.border-t { border-top: 1px solid black; }
+.border-r { border-right: 1px solid black; }
+.border-b { border-bottom: 1px solid black; }
+.border-l { border-left: 1px solid black; }
+.border-black { border-color: black; }
+.border-white { border-color: white; }
+.border-red { border-color: red; }
+.border-gray{border-color:gray}
+/* Default border styles */
+.border-solid {
+  border-style: solid;
+  border-width: 1px;
   border-color: black;
 }
-.border-white {
-  border-color: white;
+
+.border-dashed {
+  border-style: dashed;
+  border-width: 1px;
+  border-color: black;
+}
+
+.border-dotted {
+  border-style: dotted;
+  border-width: 1px;
+  border-color: black;
 }
 
 /* ======================
@@ -1055,15 +1067,77 @@ Margin bottom*/
 .collapse {
   visibility: collapse;
 }
+/* NAVLINK CODE */
+.nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+}
+.navlinks{
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:clamp(40px,10vw,60px);
+  list-style: none;
+}
+.navlink{
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 1px;
+  font-size: 25px;
+  transition: left 0.3s ease;
+  padding-bottom: 2px;
+}
+.navlink:hover{
+  border-bottom-width: 1px;
+  border-bottom-style: solid; 
 
+}
+.hamburger{
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  right:40px;
+}
+.hamburger div{
+  width: 40px;
+  height: 2px;
 
+  
+}
 
 /* RESPONSIVE CODE */
 /* ======================
    Responsive Utilities
    ====================== */
 
+   @media (width<800px){
+     /* nav code */
+     .hamburger{
+      display: flex;
+     }
+  .navlinks{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    position: absolute;
+    height: auto;
+    left: -120%;
+top:100%;
+    padding: 20px 0;
+
+  }
+   }
 @media (min-width: 640px) {
+ 
   /* Spacing - Padding */
   .sm\:p-1 {
     padding: 0.25rem;

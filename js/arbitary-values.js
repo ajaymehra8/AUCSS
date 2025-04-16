@@ -42,15 +42,7 @@ document.querySelectorAll(".card-image").forEach((element) => {
 });
 
 
-// Navbar Toggle Script
-document.addEventListener("DOMContentLoaded", () => {
-  const toggle = document.querySelector(".menu-toggle");
-  const mobileMenu = document.querySelector(".nav-mobile-links");
 
-  toggle.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
-  });
-});
 
 
 
@@ -70,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ml: "margin-left",
     mx: ["margin-left", "margin-right"],
     my: ["margin-top", "margin-bottom"],
-
     w: "width",
     h: "height",
     "max-w": "max-width",
@@ -486,3 +477,22 @@ function getCurrentBreakpoint() {
   return "base";
 }
 
+// responsive code for nav
+const hamburger=document.querySelector("#toggle");
+const navlinks=document.querySelector(".navlinks");
+const body=document.querySelector("body");
+let clicked=false;
+hamburger.addEventListener("click",()=>{
+if(!clicked){
+  body.style.overflowY="hidden";
+  navlinks.style.transition="left 0.5s ease";
+  navlinks.style.left="0";
+  clicked=true;
+}else{
+  body.style.overflowY="auto";
+  navlinks.style.transition="left 0.5s ease";
+
+  navlinks.style.left="-110%";
+  clicked=false;
+}
+});
