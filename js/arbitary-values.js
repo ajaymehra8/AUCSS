@@ -482,7 +482,8 @@ const hamburger=document.querySelector("#toggle");
 const navlinks=document.querySelector(".navlinks");
 const body=document.querySelector("body");
 let clicked=false;
-hamburger.addEventListener("click",()=>{
+
+hamburger?.addEventListener("click",()=>{
 if(!clicked){
   body.style.overflowY="hidden";
   navlinks.style.transition="left 0.5s ease";

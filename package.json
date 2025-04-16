@@ -1,6 +1,6 @@
 {
   "name": "au-css",
-  "version": "1.1.8",
+  "version": "1.1.10",
   "description": "A styling library by AU-Techies.",
   "main": "dest/style.css",
   "files": [
