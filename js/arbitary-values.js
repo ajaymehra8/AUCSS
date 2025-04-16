@@ -42,6 +42,15 @@ document.querySelectorAll(".card-image").forEach((element) => {
 });
 
 
+// Navbar Toggle Script
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.querySelector(".menu-toggle");
+  const mobileMenu = document.querySelector(".nav-mobile-links");
+
+  toggle.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+});
 
 
 
