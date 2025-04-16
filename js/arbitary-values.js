@@ -478,6 +478,9 @@ function getCurrentBreakpoint() {
 }
 
 // responsive code for nav
+const navbarClick=()=>{
+
+
 const hamburger=document.querySelector("#toggle");
 const navlinks=document.querySelector(".navlinks");
 const body=document.querySelector("body");
@@ -497,3 +500,6 @@ if(!clicked){
   clicked=false;
 }
 });
+}
+document.addEventListener("DOMContentLoaded", navbarClick);
+
